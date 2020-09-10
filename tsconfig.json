@@ -1,7 +1,7 @@
-{
-  "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
-    "strict": true
-  }
-}
+// {
+//   "compilerOptions": {
+//     "target": "es6",
+//     "module": "esnext",
+//     "strict": true
+//   }
+// }
