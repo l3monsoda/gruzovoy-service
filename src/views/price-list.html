@@ -1,0 +1,101 @@
+<!--HEAD-->
+@@include('./templates/_head__price-list.html')
+<!-- HEADER -->
+@@include('./templates/_header.html')
+<!-- MODAL-WINDOWS -->
+@@include('./templates/_modal-windows.html')
+<!--TOP-NAV-->
+<section class="top-nav">
+  <h1 class="painting-header">Прайс-лист</h1>
+  <nav class="breadcrumbs">
+    <a href="index.html" class="breadcrumbs__menu-url">Главная</a>
+    <span class="more-symbol">></span>
+    <a href="price-list.html" class="breadcrumbs__current-url">Прайс-лист</a>
+  </nav>
+</section>
+<!--PRICE-LIST-->
+<div class="price-list">
+   <div class="painting-price-list__head-block">
+    <h2 class="painting-price-list__header">Расчет окончательной цены происходит после осмотра *</h2>
+    <a download href="/Price.xlsx" class="painting-price-list__estimate-price-button">
+      <svg class="estimate-price__paperclip">
+        <use xlink:href="assets/img/sprite.svg#paperclip"></use>
+      </svg>
+      <span class="painting-price-list__estimate-price-button-text">
+        Скачать прайс-лист .doc</span>
+    </a>
+  </div>
+  <div class="estimate-price-table">
+    <div class="table-header-pl">
+      <div class="work-tittle-header-pl">Название работ</div>
+      <div class="work-price-header-pl">Цена в рублях*</div>
+    </div>
+    <div class="table-row-pl" data-price="20000" data-time="1">
+      <div class="work-tittle-pl">Замена кабины</div>
+      <div class="work-price-pl">20 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="150000" data-time="1">
+      <div class="work-tittle-pl" for="body">Замена кузова</div>
+      <div class="work-price-pl">150 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="50000" data-time="1">
+      <div class="work-tittle-pl" for="sandblasting">Пескоструйная подготовка</div>
+      <div class="work-price-pl">50 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="80000" data-time="1">
+      <div class="work-tittle-pl" for="body-paint">Покраска кузова</div>
+      <div class="work-price-pl">80 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+    <div class="table-row-pl" data-price="70000" data-time="1">
+      <div class="work-tittle-pl" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price-pl">70 000 ₽</div>
+    </div>
+  </div>
+  <div class="table__subtext price-list">* цены являются ориентировочными, рассчитать окончательную цену можно после осмотра
+    повреждений.
+  </div>
+</div>
+<!-- FOOTER -->
+@@include('./templates/_footer.html')
+<!--FOOT-->
+@@include('./templates/_foot.html')

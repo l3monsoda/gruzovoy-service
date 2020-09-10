@@ -1,0 +1,88 @@
+.estimate-price {
+  .ears();
+  .side-margin();
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.estimate-price__banner {
+  .banner();
+  background-image: url("../img/call-to-action-bg.png");
+  background-size: cover;
+  justify-content: space-around;
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header button";
+}
+
+.estimate-price__paperclip {
+  fill: @main-orange;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.estimate-price__header {
+  margin: 0;
+  .banner-header();
+  grid-area: header;
+}
+
+.upload-button {
+  .button();
+}
+
+.estimate-price__upload-button {
+  grid-area: button;
+  .row-flex();
+  .button(@main-orange; @main-white);
+  text-decoration: none !important;
+}
+
+@media (max-width: 1000px) {
+  .estimate-price {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .estimate-price__header {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 740px) {
+
+  .estimate-price__banner {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "header"
+      "button";
+  }
+
+ .estimate-price__header {
+   align-self: end;
+   padding: 0 5px;
+   font-size: 23px;
+ }
+
+  .estimate-price__upload-button {
+  justify-self: center;
+  }
+}
+
+@media (max-width: 736px) {
+  .estimate-price {
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 375px) {
+  .estimate-price__header {
+    font-size: 20px;
+  }
+}

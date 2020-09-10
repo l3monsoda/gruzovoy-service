@@ -1,0 +1,38 @@
+<!--HEAD-->
+@@include('./templates/_head__faq.html')
+<!-- HEADER -->
+@@include('./templates/_header.html')
+<!-- MODAL-WINDOWS -->
+@@include('./templates/_modal-windows.html')
+<!--TOP-NAV-->
+<section class="top-nav">
+  <h1 class="painting-header">Вопросы-ответы</h1>
+  <nav class="breadcrumbs">
+    <a href="index.html" class="breadcrumbs__menu-url">Главная</a>
+    <span class="more-symbol">></span>
+    <a href="faq.html" class="breadcrumbs__current-url">Вопросы ответы</a>
+  </nav>
+</section>
+<!-- MAIN -->
+<section class="painting__FAQ">
+  <div class="painting-price-list__head-block">
+    <h2 class="painting-price-list__header">Вы можете задать свой вопрос</h2>
+    <a class="FAQ__button popup-with-form" href="#faq-form" data-effect="mfp-zoom-in">
+      <svg class="about__svg">
+        <use xlink:href="/assets/img/sprite.svg#faq"></use>
+      </svg>
+      <span class="FAQ-banner__button-text">Задать свой вопрос</span></a>
+  </div>
+  <div class="faq-block">
+    <details class="faq-item">
+      <summary class="faq-question">
+        <p class="faq-question-text">Какой размер покрасочной камеры?</p>
+      </summary>
+      <p class="faq-answer">Наша покрасочная камера имеет размер 20×6×6 метров.</p>
+    </details>
+  </div>
+</section>
+<!-- FOOTER -->
+@@include('./templates/_footer.html')
+<!--FOOT-->
+@@include('./templates/_foot.html')

@@ -1,0 +1,142 @@
+.services {
+  background-image: url("../img/service-bg.png");
+  background-size: cover;
+  color: @main-black;
+  padding: 70px 10px;
+  .ears();
+}
+
+.services__header {
+  .h2();
+  margin-top: 70px;
+  margin-bottom: 50px;
+  align-self: flex-start;
+}
+
+.service-block {
+  box-shadow: 0 5px 32px 7px rgba(79, 79, 79, 0.1);
+  background-color: white;
+  margin-bottom: 35px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "image header"
+    "image tags"
+    "image text";
+}
+
+.service-block__image {
+  grid-area: image;
+  align-self: center;
+}
+
+.service-block__img {
+  width: 100%;
+  height: auto;
+}
+
+.service-block__header {
+  text-transform: uppercase;
+  grid-area: header;
+  padding-top: 33px;
+  margin-top: 8px;
+  padding-bottom: 15px;
+}
+
+.service-block__tags {
+  padding: 0;
+  margin: 0;
+  margin-left: -8px;
+  margin-right: 5px;
+  .row-flex();
+  grid-area: tags;
+}
+
+.service-block__text {
+  margin: 0;
+  grid-area: text;
+  place-self: start start;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.service-block__header,
+.service-block__text,
+.service-block__tags {
+  padding-left: 30px;
+}
+
+.tag-item {
+  .tag();
+}
+
+@media (max-width: 1160px) {
+  .service-block__image {
+    grid-area: image;
+    place-self: center center;
+  }
+
+  .service-block__header {
+    padding-top: 20px;
+    padding-bottom: 3px;
+  }
+
+  .service-block__image,
+  .service-block__text {
+    @p: 15px;
+    padding-top: @p;
+    padding-bottom: @p;
+    padding-left: @p;
+  }
+}
+
+@media (max-width: 1000px) {
+  .service-block {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "image header"
+      "image tags"
+      "text text";
+  }
+
+  .service-block__image {
+    // place-self: center start;
+  }
+
+  .service-block__tags {
+    place-self: start start;
+    padding: 0 15px;
+  }
+
+  .service-block__header {
+    place-self: center start;
+    padding: 0 15px;
+  }
+
+  .service-block__text {
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .service-block {
+    grid-template-areas:
+      "image header"
+      "tags tags"
+      "text text";
+  }
+}
+
+@media (max-width: 375px) {
+  .services__header {
+    justify-self: start;
+  }
+
+  .service-block__header {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+}

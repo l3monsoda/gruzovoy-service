@@ -1,0 +1,138 @@
+<!--HEAD-->
+@@include('./templates/_head__painting-maz.html')
+<!--HEADER-->
+@@include('./templates/_header.html')
+<!-- MODAL-WINDOWS -->
+@@include('./templates/_modal-windows.html')
+<!--TOP-NAV-->
+<div class="top-nav__maz">
+  <nav class="breadcrumbs">
+    <a href="index.html" class="breadcrumbs__menu-url">Главная</a>
+    <span class="more-symbol">></span>
+    <a href="painting.html" class="breadcrumbs__menu-url">Покраска грузовиков</a>
+    <span class="more-symbol">></span>
+    <a href="painting-maz.html" class="breadcrumbs__current-url">Покраска грузовиков МАЗ</a>
+  </nav>
+  <h1 class="painting-header">Покраска грузовиков МАЗ в Санкт-Петербурге</h1>
+</div>
+<!--MAIN-TEXT-->
+<div class="painting-maz__main-text main-text">
+  <p>Сайт находится в стадии разработки. Пожалуйста, свяжитесь с нами по телефону.</p>
+</div>
+<!--MAZ-SLIDER-->
+<div class="maz-slider">
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+  <div class="maz-slider-item"><img class="maz-slider-img" src="assets/img/maz-slider-photo-1.png" alt="Грузовики МАЗ покраска"></div>
+</div>
+<h2 class="maz-slider__header">Оценим стоимость работ по фото и дадим скидку 5%</h2>
+<a class="upload-button maz-upload-button popup-with-form" href="#estimate-price-form" data-effect="mfp-zoom-in">
+  <svg class="estimate-price__paperclip maz-paperclip">
+    <use xlink:href="assets/img/sprite.svg#paperclip"></use>
+  </svg>
+  Загрузить фотографии
+</a>
+<!--PRICE-LIST-->
+<div class="painting-price-list">
+  <div class="painting-price-list__head-block">
+    <h2 class="painting-price-list__header">Прайс-лист</h2>
+    <a class="painting-price-list__estimate-price-button popup-with-form" href="#estimate-price-form" data-effect="mfp-zoom-in">
+      <svg class="estimate-price__paperclip">
+        <use xlink:href="assets/img/sprite.svg#paperclip"></use>
+      </svg>
+      <span class="painting-price-list__estimate-price-button-text">
+        Оценить
+        стоимость по фото</span>
+    </a>
+  </div>
+  <div class="estimate-price-table">
+    <div class="table-header">
+      <div class="work-tittle-header">Название работ</div>
+      <div class="work-price-header">Цена в рублях*</div>
+      <div class="checkbox-header">Добавить</div>
+    </div>
+    <div class="table-row" data-price="20000" data-time="1">
+      <div class="work-tittle">Замена кабины</div>
+      <div class="work-price">20 000 ₽</div>
+      <div class="checkbox">
+        <div class="table-row-checkbox"></div>
+      </div>
+    </div>
+    <div class="table-row" data-price="150000" data-time="1">
+      <div class="work-tittle" for="body">Замена кузова</div>
+      <div class="work-price">150 000 ₽</div>
+      <div class="checkbox">
+        <div class="table-row-checkbox"></div>
+      </div>
+    </div>
+    <div class="table-row" data-price="50000" data-time="1">
+      <div class="work-tittle" for="sandblasting">Пескоструйная подготовка</div>
+      <div class="work-price">50 000 ₽</div>
+      <div class="checkbox">
+        <div class="table-row-checkbox"></div>
+      </div>
+    </div>
+    <div class="table-row" data-price="80000" data-time="1">
+      <div class="work-tittle" for="body-paint">Покраска кузова</div>
+      <div class="work-price">80 000 ₽</div>
+      <div class="checkbox">
+        <div class="table-row-checkbox"></div>
+      </div>
+    </div>
+    <div class="table-row" data-price="70000" data-time="1">
+      <div class="work-tittle" for="cabin-paint">Покраска кабины</div>
+      <div class="work-price">70 000 ₽</div>
+      <div class="checkbox">
+        <div class="table-row-checkbox"></div>
+      </div>
+    </div>
+    <div class="table-footer">
+      <div class="summary-cell">
+        <div class="summary-cell-text">Общая стоимость работ</div>
+        <div class="summary-cell-price"><span class="price-result">0</span> ₽</div>
+      </div>
+      <div class="time-limit-cell">
+        <div class="time-limit-text">Срок исполнения</div>
+        <div class="time-limit-deadline"><span class="time-result">0</span> дн.</div>
+      </div>
+      <button class="order-now-button">Заказать сейчас</button>
+    </div>
+  </div>
+  <div class="table__subtext">* цены являются ориентировочными, рассчитать окончательную цену можно после осмотра
+    повреждений.
+  </div>
+</div>
+<!--FAQ-->
+<section class="painting__FAQ">
+  <h2 class="FAQ__header">Вопрос-ответ</h2>
+  <div class="faq-block">
+    <details class="faq-item">
+      <summary class="faq-question">
+        <p class="faq-question-text">Какой размер покрасочной камеры?</p>
+      </summary>
+      <p class="faq-answer">Наша покрасочная камера имеет размер 20×6×6 метров.</p>
+    </details>
+  </div>
+</section>
+<!--FAQ-banner-->
+<section class="FAQ-banner-section">
+  <div class="FAQ-banner">
+    <h2 class="FAQ-banner__header">
+      <a href="faq.html" class="FAQ-banner__header-url">Читать все вопросы <br> и ответы по теме
+      </a>
+    </h2>
+    <a class="FAQ-banner__button popup-with-form" href="#faq-form" data-effect="mfp-zoom-in">
+      <svg class="about__svg">
+        <use xlink:href="assets/img/sprite.svg#faq"></use>
+      </svg>
+      <span class="FAQ-banner__button-text">Задать свой вопрос</span></a>
+  </div>
+</section>
+<!--FOOTER-->
+@@include('./templates/_footer.html')
+<!--FOOT-->
+@@include('./templates/_foot.html')

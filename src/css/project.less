@@ -1,0 +1,127 @@
+@offset: 30px;
+@offset_one_side: (@offset / 2);
+@path_img: "/img/";
+
+.side-margin() {
+  margin: 0 10px;
+}
+
+.row-flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-flex() {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.size(@n) {
+  width: calc(100% / @n);
+}
+
+.ears() {
+  box-sizing: border-box;
+  padding: 0 calc(50% - 660px);
+  overflow: hidden;
+}
+
+.h1() {
+  color: @main-white;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 44px;
+  text-transform: uppercase;
+}
+
+.h2(@text-align: center) {
+  color: @main-black;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: @text-align;
+}
+
+.tag() {
+  color: @grey-text;
+  background-color: @grey-bg;
+  border-radius: 13px;
+  opacity: .8;
+  padding: 5px 13px;
+  margin: 5px 5px;
+  list-style: none;
+}
+
+.link() {
+  text-decoration: none;
+  color: @main-black;
+  border-bottom: 1px solid @main-black;
+
+  &:hover {
+    color: @main-orange;
+    border-color: @main-orange;
+  }
+}
+
+.button(@text-color: @main-white;
+
+@bg-color: @main-orange;
+
+@max-width: 300px) {
+
+  .row-flex();
+  max-width: @max-width;
+  border-radius: 26px;
+  padding: 10px 25px;
+  color: @text-color;
+  background-color: @bg-color;
+  font-size: 18px;
+  height: 51px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  transition: all ease .3s;
+  text-decoration: none !important;
+
+  &:hover {
+    border: 4px solid @hover-orange;
+    text-decoration: none;
+  }
+
+  &:focus {
+  	outline: none;
+  }
+}
+
+.banner-header(@color: @main-white;
+
+@font-size: 32px) {
+  color: @color;
+  font-size: @font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.banner(@h: 166px) {
+  background-size: cover;
+  height: @h;
+}
+
+.user-select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@main-white: #ffffff;
+@main-black: #141313;
+@main-orange: #f26638;
+@second-orange: #ff6633;
+@hover-orange: #fbd1c4;
+@main-grey: #afafaf;
+@grey-bg: #f2f2f2;
+@grey-bg-2: #d1d1d1;
+@grey-text: #726e6e;

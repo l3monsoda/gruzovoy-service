@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import "modules/font-face.css";
+@import "modules/vars.css";
+@import "../../node_modules/normalize.css/normalize.css";
+@import "modules/base.css";
+@import "modules/sprite.css";
+@import "modules/grid.css";
+@import "modules/animations.css";
+/*componets styles*/
+@import "components/icon.css";
+@import "components/buttons.css";
+@import "components/links.css";
+@import "components/preloader.css";
+@import "../../node_modules/magnific-popup/dist/magnific-popup.css";
+@import "../../node_modules/slick-carousel/slick/slick-theme.less";
+@import "../../node_modules/slick-carousel/slick/slick.less";
+@import "../../node_modules/slick-lightbox/dist/slick-lightbox.css";
+@import "../../node_modules/zurb-twentytwenty/css/twentytwenty.css";
+@import "../../node_modules/dropzone/dist/basic.css";
+@import "../../node_modules/dropzone/dist/dropzone.css";
+/*last styles*/
+/*@import "../../node_modules/atm.css/atm.css";*/
+@import "modules/tags.css";
+
+@import "header.less";
+@import "project.less";
+@import "main.less";
+@import "estimate-price-banner.less";
+@import "advantages.less";
+@import "services.less";
+@import "special-offer.less";
+@import "portfolio.less";
+@import "gallery.less";
+@import "about.less";
+@import "map.less";
+@import "footer.less";
+
+@import "painting-top-nav.less";
+@import "painting-filter.less";
+@import "painting-description.less";
+@import "painting-price-list.less";
+@import "painting-FAQ.less";
+@import "painting-FAQ-banner.less";
+
+@import "painting-top-nav-maz.less";
+
+@import "repair-top-nav.less";
+
+@import "modal-windows.less";
+
+@import "css-hamburger-menu.less";
+
+@import "painting-maz-slider.less";
+
+@import "price-list.less";
+
+@import "FAQ.less";

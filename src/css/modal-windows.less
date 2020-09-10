@@ -1,0 +1,278 @@
+.form-modal-window {
+  position: absolute;
+  z-index: 900;
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
+  top: -290px;
+  box-shadow: 0 30px 70px 14px rgba(0, 0, 0, 0.2);
+  background-color: @main-white;
+  .column-flex();
+  justify-content: flex-start;
+  align-items: center;
+  color: @main-black;
+  padding: 42px 67px 20px 67px;
+
+  ul {
+    padding: 0;
+    position: relative;
+  }
+
+  li {
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: @main-black;
+  }
+}
+
+.iframe-form {
+  position: absolute;
+  z-index: 900;
+  left: 50%;
+  margin-left: -25%;
+  top: -500px;
+  box-shadow: 0 30px 70px 14px rgba(0, 0, 0, 0.2);
+  color: @main-black;
+  box-sizing: border-box;
+  padding: 50px;
+  background-color: @main-white;
+}
+
+#textarea {
+  resize: none;
+}
+
+.textarea-item {
+  height: 116px;
+}
+
+.form-modal-window__header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.form-modal-window__form-content {
+  .column-flex();
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form-content__form,
+.form_content__bottom-block {
+  width: 100%;
+}
+
+.form-content__subtext {
+  font-size: 16px;
+}
+
+.mfp-close {
+  font-size: 60px;
+  @m: 10px;
+  margin-top: @m;
+  margin-right: @m;
+}
+
+.form-modal-window__input-item {
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #999999;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  min-height: 54px;
+
+  &:focus {
+    border: 1.5px solid @main-orange;
+    border-radius: 15px;
+    outline: none;
+  }
+}
+
+.form-modal-window__input-item::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #d5d5d5;
+}
+
+.form-modal-window__input-item:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #d5d5d5;
+}
+
+.form-modal-window__input-item::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #d5d5d5;
+}
+
+.form-modal-window__input-item:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #d5d5d5;
+}
+
+.form-modal-window__form-items {
+  list-style: none;
+}
+
+.form-modal-window__send-button {
+  align-self: flex-end;
+  .button(@main-white, @main-orange, 150px);
+}
+
+.form_content__bottom-block {
+  .row-flex();
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom-block__conf {
+  font-size: 13px;
+  font-weight: 500;
+  width: 60%;
+  line-height: 20px;
+}
+
+.phone-label,
+.name-label,
+.message-label {
+  position: absolute;
+  background-color: @main-white;
+  padding: 0 10px;
+  left: 10px;
+}
+
+.dropzone .dz-preview .dz-image {
+  width: 80px;
+  height: 80px;
+}
+
+// ====== Zoom effect ======
+
+.mfp-zoom-in {
+
+  /* start state */
+  .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+  }
+
+  &.mfp-bg {
+    opacity: 0;
+    transition: all 0.3s ease-out;
+  }
+
+  /* animate in */
+  &.mfp-ready {
+    .mfp-with-anim {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &.mfp-bg {
+      opacity: 0.8;
+    }
+  }
+
+  /* animate out */
+  &.mfp-removing {
+
+    .mfp-with-anim {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    &.mfp-bg {
+      opacity: 0;
+    }
+
+  }
+}
+
+// Стили для области загрузки
+
+.dropzone {
+  min-height: 100px;
+  border-radius: 15px;
+  border: 1px solid #999999;
+}
+
+.dz-message {
+  color: @main-grey;
+}
+
+@media (max-width: 414px) {
+
+  .iframe-form {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 100%;
+    margin: 0;
+    padding: 15px 5px;
+  }
+
+  .form-modal-window__header {
+    padding-top: 20px;
+  }
+
+  .form-modal-window {
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 100%;
+    margin: 0;
+    padding: 15px 5px;
+  }
+
+  .form-modal-window__header {
+    margin-bottom: 15px;
+    margin-top: 20px;
+  }
+
+  .mfp-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .form-content__subtext {
+    padding: 0 25px;
+    text-align: center;
+  }
+
+  .form-modal-window__form-content {
+    margin-top: 20px;
+  }
+
+  .form_content__bottom-block {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -35px;
+  }
+
+  .bottom-block__conf {
+    width: 100%;
+    order: 2;
+    align-self: center;
+    padding: 0 25px;
+  }
+
+  .form-modal-window__send-button {
+    align-self: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-modal-window__input-item {}
+
+  .form-content__form {
+    padding: 0 25px;
+  }
+}

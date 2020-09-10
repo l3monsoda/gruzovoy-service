@@ -1,0 +1,78 @@
+.painting__FAQ {
+  .ears();
+  .side-margin();
+  margin-top: 80px;
+}
+
+.FAQ__header {
+  .h2();
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.faq-block {
+  .row-flex();
+  align-items: flex-start;
+  color: @main-black;
+  font-size: 18px;
+  justify-content: space-between;
+}
+
+.faq-item {
+  user-select: none;
+  width: 100%;
+  border: none;
+  box-shadow: 0 5px 32px 7px rgba(79, 79, 79, 0.1);
+  margin-bottom: 15px;
+}
+
+.faq-question-text {
+  width: 90%;
+}
+
+.faq-question {
+  font-weight: 700;
+  .row-flex();
+  justify-content: space-between;
+
+  &:after {
+    font-family: "Proxima semibold";
+    content: "+";
+    font-size: 50px;
+  }
+
+  &:before {
+    background: none;
+  }
+
+  &:hover {
+    color: @main-orange;
+  }
+}
+
+details[open]>.faq-question {
+  color: @main-black;
+}
+
+details[open]>.faq-question:after {
+  font-family: "Proxima semibold";
+  content: "—";
+  font-size: 40px;
+}
+
+.faq-answer {
+  font-weight: 400;
+  margin: 0;
+  border-top: #dddddd solid 1px;
+}
+
+.faq-answer,
+.faq-question {
+  padding: 20px 20px 16px 25px;
+}
+
+@media (max-width: 1080px) {
+  .faq-item {
+    width: 100%;
+  }
+}

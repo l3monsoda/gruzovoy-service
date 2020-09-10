@@ -1,0 +1,122 @@
+.map {
+  margin-top: 72px;
+  position: relative;
+}
+
+.address__work-time {
+  .column-flex();
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+.address__e-mail {
+  margin-bottom: 15px;
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.address__e-mail-style {
+  color: #3358a9;
+  border-bottom: 1px dashed;
+
+  &:hover {
+    color: @main-orange;
+  }
+}
+
+.map__address {
+  .column-flex();
+  background-color: @main-white;
+  padding: 61px 80px 52px 48px;
+  box-shadow: 0 5px 32px 7px rgba(79, 79, 79, 0.1);
+  position: absolute;
+  z-index: 10;
+  top: 40px;
+  left: 100px;
+  font-size: 18px;
+}
+
+.address__name {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.address__phone-row {
+  .row-flex();
+  margin-bottom: 15px;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-right: 10px;
+  }
+}
+
+.map__social:first-child {
+  margin-right: -3px;
+}
+
+.map__social {
+  //color: @main-black;
+
+}
+
+.map__social.viber {
+  color: #8e24aa;
+  @s: 20px;
+  width: @s;
+  height: @s;
+
+
+  &:hover {
+    color: @main-orange;
+  }
+}
+
+.map__social.whatsapp {
+  @s: 30px;
+  width: @s;
+  height: @s;
+  color: #63bb5c;
+  margin-top: -5px;
+
+
+  &:hover {
+    color: @main-orange;
+  }
+}
+
+.map__social.telegramm {
+  @s: 30px;
+  width: @s;
+  height: @s;
+  color: #0088cc;
+  margin-top: -5px;
+
+
+  &:hover {
+    color: @main-orange;
+  }
+}
+
+.work-time__tittle {
+  margin-bottom: 5px;
+}
+
+.work-time__style {
+  font-weight: bold;
+}
+
+.address__phone-style {
+  font-weight: bold;
+  text-decoration: none;
+  color: @main-black;
+}
+
+@media (max-width: 950px) {
+  .map__address {
+    position: static;
+    margin: 0;
+  }
+}

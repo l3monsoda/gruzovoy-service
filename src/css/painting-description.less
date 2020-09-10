@@ -1,0 +1,36 @@
+.painting-description {
+	.row-flex();
+	.ears();
+  .side-margin();
+  margin-top: 70px;
+}
+
+.painting-description__text-block,
+.painting-description-image {
+	.size(2);
+}
+
+.painting-description__header {
+	.h2(left);
+	margin-bottom: 40px;
+}
+
+.painting-description__text-block {
+	padding-right: 40px;
+}
+
+.painting-description__text {
+	font-size: 18px;
+	color: @main-black;
+}
+
+@media (max-width: 1060px) {
+  //.painting-description {
+  //  flex-direction: column;
+  //}
+
+  .painting-description__text-block,
+  .painting-description-image {
+    .size(1);
+  }
+}

@@ -1,0 +1,32 @@
+<!--HEAD-->
+@@include('./templates/_head__b2b.html')
+<!-- HEADER -->
+@@include('./templates/_header.html')
+<!-- MODAL-WINDOWS -->
+@@include('./templates/_modal-windows.html')
+<!--TOP-NAV-->
+<section class="top-nav">
+  <h1 class="painting-header">Для организаций</h1>
+  <nav class="breadcrumbs">
+    <a href="index.html" class="breadcrumbs__menu-url">Главная</a>
+    <span class="more-symbol">></span>
+    <a href="price-list.html" class="breadcrumbs__current-url">b2b</a>
+  </nav>
+</section>
+<!--MAIN-->
+<div class="price-list">
+   <div class="painting-price-list__head-block">
+    <h2 class="painting-price-list__header">Мы предлагаем</h2>
+    <a download href="/Price.xlsx" class="painting-price-list__estimate-price-button">
+      <svg class="estimate-price__paperclip">
+        <use xlink:href="assets/img/sprite.svg#paperclip"></use>
+      </svg>
+      <span class="painting-price-list__estimate-price-button-text">
+        Скачать реквизиты .doc</span>
+    </a>
+  </div>
+</div>
+<!-- FOOTER -->
+@@include('./templates/_footer.html')
+<!--FOOT-->
+@@include('./templates/_foot.html')

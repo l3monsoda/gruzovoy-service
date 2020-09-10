@@ -1,0 +1,227 @@
+.main-screen {
+  .ears();
+  background-image: url("../img/main-bg.png");
+  background-size: cover;
+  min-height: 540px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header"
+    "repair painting";
+
+  ul {
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    list-style: none;
+    font-size: 16px;
+  }
+}
+
+.main-header {
+  grid-area: header;
+  .h1();
+  text-align: center;
+  margin-top: 68px;
+  place-self: start center;
+}
+
+.repair-service__header,
+.painting-service__header {
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  grid-area: header;
+  place-self: center start;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.painting-service__list-item,
+.repair-service__list-item {
+  margin-bottom: 5px;
+}
+
+.main-image {
+  grid-area: image;
+}
+
+.painting-service__list,
+.repair-service__list {
+  grid-area: list;
+}
+
+.repair-service,
+.painting-service {
+  position: relative;
+  text-decoration: none;
+  color: @main-black;
+  box-shadow: 0 5px 32px 7px rgba(79, 79, 79, 0.1);
+  background-color: #ffffff;
+  transition: all ease .3s;
+  margin-top: -50px;
+  width: 500px;
+  height: 166px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "image header"
+    "image list";
+}
+
+.repair-service {
+  grid-area: repair;
+  margin-left: 10px;
+}
+
+.painting-service {
+  grid-area: painting;
+  margin-right: 10px;
+  justify-self: end;
+}
+
+@hover-margin: 5px;
+
+.repair-service:hover,
+.painting-service:hover {
+  transition: all ease .3s;
+  background-color: rgba(251, 240, 237);
+  box-shadow: 0 5px 32px 7px rgba(79, 79, 79, 0.5);
+
+}
+
+@media (max-width: 1024px) {
+
+  .main-header {
+    align-self: center;
+  }
+
+  .repair-service,
+  .painting-service {
+    max-width: 480px;
+    margin-bottom: -30px;
+    align-self: end;
+  }
+
+  .repair-service__header,
+  .painting-service__header {
+    font-size: 17px;
+  }
+
+  .repair-service__list-item,
+  .painting-service__list-item {
+    font-size: 15px;
+  }
+
+  .main-screen {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "header header"
+      "repair painting";
+  }
+
+}
+
+@media (max-width: 1000px) {
+
+  .main-header {
+    margin-top: 50px;
+  }
+
+  .main-screen {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto 20px auto !important;
+    grid-template-areas:
+      "header"
+      "repair"
+      "."
+      "painting" !important;
+  }
+
+  .repair-service,
+  .painting-service {
+    margin: 0;
+    place-self: center center;
+  }
+
+  .painting-service {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 736px) {
+
+  .main-header {
+    font-size: 24px;
+    align-self: center;
+    margin-top: 20px;
+    line-height: 34px;
+  }
+
+  @row: 180px;
+
+  .main-screen {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto @row 50px @row;
+    grid-template-areas:
+      "header"
+      "repair"
+      "."
+      "painting";
+  }
+
+  .main-image {
+    width: 120px;
+    align-self: center;
+  }
+
+  .repair-service,
+  .painting-service {
+    height: @row;
+    width: 370px;
+    align-self: start;
+  }
+
+  .repair-service__header,
+  .painting-service__header {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .repair-service__list-item,
+  .painting-service__list-item {
+    font-size: 13px;
+  }
+
+  .repair-service__list,
+  .painting-service__list {
+    align-self: center;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .main {}
+
+  .main-image {
+    display: none;
+  }
+
+  .repair-service__list {
+    margin-left: 10px;
+  }
+
+  .repair-service,
+  .painting-service {
+    width: 320px;
+    height: 150px;
+  }
+}

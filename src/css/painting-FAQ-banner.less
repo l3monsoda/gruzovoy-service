@@ -1,0 +1,45 @@
+.FAQ-banner-section {
+  .ears();
+  .side-margin();
+  margin-bottom: 50px;
+  margin-top: 15px;
+}
+
+.FAQ-banner {
+  .row-flex();
+  .banner();
+  justify-content: space-around;
+  align-items: center;
+  background-image: url("../img/painting-banner-bg.png");
+}
+
+.FAQ-banner__header {
+  .banner-header();
+  text-decoration: underline;
+
+  a {
+    color: inherit;
+  }
+}
+
+.FAQ-banner__button {
+  .button(@main-orange;
+  @main-white);
+  align-items: stretch;
+  text-decoration: none;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 5px;
+    margin-top: -5px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .FAQ-banner {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
