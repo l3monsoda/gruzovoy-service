@@ -276,3 +276,70 @@
     padding: 0 25px;
   }
 }
+
+
+// Стили для ошибок валидации
+
+.validation-result {
+  font-size: 14px;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+}
+
+.error-message {
+  color: rgb(223, 5, 5);
+}
+
+.valid-message {
+  color: rgb(23, 144, 12)
+}
+
+.form-modal-window__input-item_error {
+  border-color: rgb(223, 5, 5);
+}
+
+.form-modal-window__input-item_valid {
+border-color: rgb(23, 144, 12);
+}
+
+.required:after {
+  content: '*';
+  font-size: 19px;
+  position: absolute;
+  right: -20px;
+  top: 30px;
+  opacity: 0.5;
+}
+
+.invalid-field,
+.valid-field {
+ 
+  &:after {
+  position: absolute;
+  right: -25px;
+  top: 25px;
+  font-size: 23px;
+ }
+
+}
+
+.valid-field {
+
+  &:after{
+    content: '✔';
+    color: rgb(23, 144, 12);
+  }
+
+}
+
+
+.invalid-field{
+
+  &:after {
+  content: '✖';
+  color: rgb(223, 5, 5);
+  }
+
+}
+

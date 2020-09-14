@@ -19,10 +19,6 @@ $('.popup-with-form').magnificPopup({
     }
 });
 
-$('.form-modal-window__send-button').on('click', function(e) {
-    e.preventDefault();
-})
-
 // Мобильное меню, ивенты кнопки
 
 const menuToggle = document.querySelector('#menu-toggle');
@@ -237,3 +233,66 @@ $('#all').click(function() {
     $('.painting-card__item').fadeIn();
     fActive = 'all';
 });
+
+// Валидация формы
+
+
+var onError = function() {
+    var messageContainer = this.element.nextElementSibling
+    messageContainer.classList.remove('valid-message')
+    messageContainer.classList.add('error-message')
+    this.element.classList.remove('form-modal-window__input-item_valid')
+    this.element.classList.add('form-modal-window__input-item_error')
+    this.element.parentNode.classList.remove('valid-field')
+    this.element.parentNode.classList.add('invalid-field')
+    messageContainer.textContent = this.message
+};
+
+var onSuccess = function() {
+    var messageContainer = this.element.nextElementSibling
+    messageContainer.classList.remove('error-message')
+    messageContainer.classList.add('valid-message')
+    this.element.classList.remove('form-modal-window__input-item_error')
+    this.element.classList.add('form-modal-window__input-item_valid')
+    this.element.parentNode.classList.remove('invalid-field')
+    this.element.parentNode.classList.add('valid-field')
+    messageContainer.textContent = 'Данные введены корректно'
+};
+
+var phoneInput = new Validator.init(document.getElementById('phone-cta'), {
+    rules: {
+        required: true,
+        match: 'numbers',
+        min: 6,
+        max: 12,
+    },
+    messages: {
+        required: 'Это поле обязательно для заполнения!',
+        min: 'Введите минимум %rule% цифр',
+        max: 'Не больше %rule% цифр',
+        match: 'Введите корректный номер телефона'
+    },
+    onError: onError,
+    onSuccess: onSuccess
+});
+
+var nameInput = new Validator.init(document.getElementById('name-cta'), {
+    rules: {
+        required: true,
+        match: 'letters',
+        min: 2,
+    },
+    messages: {
+        required: 'Это поле обязательно для заполнения!',
+        min: 'Введите минимум %rule% букв'
+    },
+    onError: onError,
+    onSuccess: onSuccess
+});
+
+var validateBtn = document.getElementById('form-modal-window__send-button-cta');
+
+validateBtn.addEventListener('click', function(e) {
+    phoneInput.validate();
+    nameInput.validate();
+}, false)

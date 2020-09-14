@@ -1,62 +1,39 @@
-<!DOCTYPE HTML>
-<html>
+<!--HEAD-->
+@@include('./templates/_head.html')
+<!-- HEADER -->
+@@include('./templates/_header.html')
+<!-- MODAL-WINDOWS -->
+@@include('./templates/_modal-windows.html')
+<!--  -->
+<main class="sandbox">
+    <div class="testdiv">
+        <input type="text" class="input" value="+7(968) 186-34-34">
+        <button class="button-test">Преобразовать</button>
+        <div class="result"></div>
+    </div>
+</main>
 
-<head>
-  <meta charset="utf-8">
-  <style>
-    .selected {
-      background: #0f0;
-    }
+<script>
+    var input = document.querySelector('.input')
+    var button = document.querySelector('.button-test')
+    var result = document.querySelector('.result')
 
-    li {
-      cursor: pointer;
-    }
-  </style>
-</head>
-
-<body>
-
-  Кликни на элемент списка, чтобы выделить его.
-  <br>
-
-  <ul id="ul">
-    <li>Кристофер Робин</li>
-    <li>Винни Пух</li>
-    <li>Тигра</li>
-    <li>Кенга</li>
-    <li>Кролик. Просто Кролик.</li>
-  </ul>
-
-  <script>
-    ul.onclick = function(event) {
-      if (event.target.tagName != "LI") return;
-
-      if (event.ctrlKey || event.metaKey) {
-        toggleSelect(event.target);
-      } else {
-        singleSelect(event.target);
-      }
-
-    }
-
-    // предотвращает ненужное выделение элементов списка при клике
-    ul.onmousedown = function() {
-      return false;
+    document.querySelector('.button-test').onclick = function() {
+        result.textContent = input.value.replace(/\s+/g, '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
     };
 
-    function toggleSelect(li) {
-      li.classList.toggle('selected');
+    var phoneTrimming = function(str) {
+        return str.replace(/\s+/g, '').replace(/-/g, '').replace(/\(/g, '').replace(/\)/g, '')
     }
 
-    function singleSelect(li) {
-      let selected = ul.querySelectorAll('.selected');
-      for(let elem of selected) {
-        elem.classList.remove('selected');
-      }
-      li.classList.add('selected');
-    }
+    var testValue = '+7(968) 186-34-34'
+    var x = parseInt(phoneTrimming(testValue))
+    console.log(x)
+    console.log(typeof x)
+</script>
 
-  </script>
-
-</body>
-</html>
+<!--  -->
+<!-- FOOTER -->
+@@include('./templates/_footer.html')
+<!--FOOT-->
+@@include('./templates/_foot.html')

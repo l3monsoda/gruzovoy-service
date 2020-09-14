@@ -18,6 +18,10 @@ mask: url(../img/sprite.svg#blog) no-repeat;
 -webkit-mask: url(../img/sprite.svg#card) no-repeat;
 mask: url(../img/sprite.svg#card) no-repeat;
 }
+.icon-checked::before {
+-webkit-mask: url(../img/sprite.svg#checked) no-repeat;
+mask: url(../img/sprite.svg#checked) no-repeat;
+}
 .icon-cog::before {
 -webkit-mask: url(../img/sprite.svg#cog) no-repeat;
 mask: url(../img/sprite.svg#cog) no-repeat;
@@ -81,6 +85,10 @@ mask: url(../img/sprite.svg#telegram) no-repeat;
 .icon-twitter::before {
 -webkit-mask: url(../img/sprite.svg#twitter) no-repeat;
 mask: url(../img/sprite.svg#twitter) no-repeat;
+}
+.icon-unchecked::before {
+-webkit-mask: url(../img/sprite.svg#unchecked) no-repeat;
+mask: url(../img/sprite.svg#unchecked) no-repeat;
 }
 .icon-viber::before {
 -webkit-mask: url(../img/sprite.svg#viber) no-repeat;
