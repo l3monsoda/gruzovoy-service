@@ -70,5 +70,23 @@
         "workspaceRoot": null,
         "workspacePath": null,
         "id": "YPuwAgjUnZMxDbL3"
+    },
+    {
+        "type": "File",
+        "name": "c:\\projects\\gruzovoy-service\\gulpfile.js",
+        "parent_id": null,
+        "fsPath": "c:\\projects\\gruzovoy-service\\gulpfile.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "y3sSgc2t1EwJMxuO"
+    },
+    {
+        "type": "File",
+        "name": "c:\\projects\\gruzovoy-service\\package.json",
+        "parent_id": null,
+        "fsPath": "c:\\projects\\gruzovoy-service\\package.json",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "WACN20O1kiv5Tcj4"
     }
 ]

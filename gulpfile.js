@@ -68,6 +68,7 @@ const cms = {
     html: 'build/',
     css: 'build/assets/css/',
     js: 'build/assets/js/',
+    php: 'build/assets/php/',
     img: 'build/assets/',
     libs: 'build/assets/libs/',
     fonts: 'build/assets/fonts/',
@@ -78,10 +79,16 @@ const cms = {
 // HTML TASK
 /****************************************************************************************************/
 const html = () =>
-  src('src/views/*.html', { since: lastRun(html) })
+  src('src/views/*.html', {
+    since: lastRun(html)
+  })
   .pipe(plumber())
-  .pipe(fileinclude({ basepath: './src' }))
-  .pipe(gulpIf(!isDevelopment, htmlmin({ collapseWhitespace: true })))
+  .pipe(fileinclude({
+    basepath: './src'
+  }))
+  .pipe(gulpIf(!isDevelopment, htmlmin({
+    collapseWhitespace: true
+  })))
   .pipe(dest(cms.modx.html))
 exports.html = html
 /****************************************************************************************************/
@@ -90,7 +97,9 @@ exports.html = html
 const htmltemplates = () =>
   src('src/views/*.html')
   .pipe(plumber())
-  .pipe(fileinclude({ basepath: './src' }))
+  .pipe(fileinclude({
+    basepath: './src'
+  }))
   .pipe(dest(cms.modx.html))
 exports.htmltemplates = htmltemplates
 /****************************************************************************************************/
@@ -105,12 +114,18 @@ exports.validation = validation
 // CSS TASK
 /****************************************************************************************************/
 const css = () =>
-  src('src/css/style.css', { sourcemaps: true })
+  src('src/css/style.css', {
+    sourcemaps: true
+  })
   .pipe(plumber())
   .pipe(less())
   .pipe(postcss([
-    postcssImport({ path: ['src/css'] }),
-    postcssNormalize({ forceImport: true }),
+    postcssImport({
+      path: ['src/css']
+    }),
+    postcssNormalize({
+      forceImport: true
+    }),
     tailwind(),
     postcssPresetEnv({
       stage: 2,
@@ -118,7 +133,9 @@ const css = () =>
         'nesting-rules': true,
         'custom-media-queries': true
       },
-      autoprefixer: { cascade: false }
+      autoprefixer: {
+        cascade: false
+      }
     })
   ]))
   .pipe(gulpIf(!isDevelopment, gulpPurgeCss({
@@ -129,7 +146,9 @@ const css = () =>
     restructure: false,
     comments: false
   })])))
-  .pipe(gulpIf(!isDevelopment, dest(cms.modx.css), dest(cms.modx.css, { sourcemaps: '.' })))
+  .pipe(gulpIf(!isDevelopment, dest(cms.modx.css), dest(cms.modx.css, {
+    sourcemaps: '.'
+  })))
 exports.css = css
 /****************************************************************************************************/
 // JS TASK WITH BABEL AND WEBPACK
@@ -160,11 +179,23 @@ exports.js = js
 //     .pipe(dest(cms.modx.js))
 // exports.js = js
 /****************************************************************************************************/
+// PHP TASK
+/****************************************************************************************************/
+const php = () =>
+  src('src/php/main.php')
+  .pipe(plumber())
+  .pipe(dest(cms.modx.php))
+exports.php = php
+/****************************************************************************************************/
 // LIBS TASK
 /****************************************************************************************************/
 const libs = () =>
-  src(mainNpmFiles(), { base: './node_modules' })
-  .pipe(flatten({ includeParents: 1 }))
+  src(mainNpmFiles(), {
+    base: './node_modules'
+  })
+  .pipe(flatten({
+    includeParents: 1
+  }))
   .pipe(newer(cms.modx.libs))
   .pipe(dest(cms.modx.libs))
 exports.libs = libs
@@ -180,13 +211,24 @@ exports.fonts = fonts
 // IMG TASK (JPG,PNG,GIF)
 /****************************************************************************************************/
 const img = () =>
-  src(['src/img/**/*.*', 'src/images/**/*.*', '!src/img/icons/*.*'], { base: 'src' })
+  src(['src/img/**/*.*', 'src/images/**/*.*', '!src/img/icons/*.*'], {
+    base: 'src'
+  })
   .pipe(newer(cms.modx.img))
   .pipe(gulpIf(!isDevelopment, imagemin([
-    imagemin.gifsicle({ interlaced: true }),
-    imagemin.mozjpeg({ progressive: true }),
-    imagemin.optipng({ optimizationLevel: 1 }),
-    imagemin.svgo({ removeViewBox: false, collapseGroups: true })
+    imagemin.gifsicle({
+      interlaced: true
+    }),
+    imagemin.mozjpeg({
+      progressive: true
+    }),
+    imagemin.optipng({
+      optimizationLevel: 1
+    }),
+    imagemin.svgo({
+      removeViewBox: false,
+      collapseGroups: true
+    })
   ])))
   .pipe(gulpIf(!isDevelopment, dest(cms.modx.img), symlink(cms.modx.img)))
 exports.img = img
@@ -217,13 +259,26 @@ const config = {
     },
     transform: [{
       svgo: {
-        plugins: [
-          { removeXMLNS: true },
-          { cleanupListOfValues: true },
-          { convertShapeToPath: false },
-          { removeAttrs: { attrs: ['data-name', 'version'] } },
-          { removeStyleElement: true },
-          { removeScriptElement: true }
+        plugins: [{
+            removeXMLNS: true
+          },
+          {
+            cleanupListOfValues: true
+          },
+          {
+            convertShapeToPath: false
+          },
+          {
+            removeAttrs: {
+              attrs: ['data-name', 'version']
+            }
+          },
+          {
+            removeStyleElement: true
+          },
+          {
+            removeScriptElement: true
+          }
         ],
         floatPrecision: 1
       }
@@ -299,6 +354,7 @@ const watchers = cb => {
   watch('src/css/**/*.css', css)
   watch('src/css/**/*.less', css)
   watch('src/js/**/*.{js,ts}', js)
+  watch('src/php/**/*.php', php)
   watch(['src/**/*.{jpg,png,gif,webp}', '!src/img/icons/'], img)
     .on('unlink', filepath => {
       const filePathFromSrc = path.relative(path.resolve('src'), filepath)
@@ -322,7 +378,7 @@ const watchers = cb => {
 /****************************************************************************************************/
 // GLOBAL TASKS
 /****************************************************************************************************/
-const build = series(svgicons, parallel(html, css, js, libs, fonts, img))
+const build = series(svgicons, parallel(html, css, js, php, libs, fonts, img))
 exports.build = build
 const dev = series(build, parallel(watchers, serve))
 exports.dev = dev
