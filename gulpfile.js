@@ -182,7 +182,7 @@ exports.js = js
 // PHP TASK
 /****************************************************************************************************/
 const php = () =>
-  src('src/php/main.php')
+  src('src/php/*.php')
   .pipe(plumber())
   .pipe(dest(cms.modx.php))
 exports.php = php

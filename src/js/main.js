@@ -236,6 +236,9 @@ $('#all').click(function() {
 
 // Валидация формы
 
+// Создаем ассоциативный массив с подготовленными данными для отправки
+
+var formData = {}
 
 var onError = function() {
     var messageContainer = this.element.nextElementSibling
@@ -257,8 +260,8 @@ var onSuccess = function() {
     this.element.parentNode.classList.remove('invalid-field')
     this.element.parentNode.classList.add('valid-field')
     messageContainer.textContent = 'Данные введены корректно'
+    formData[this.element.getAttribute('name')] = this.value
 };
-
 var phoneInput = new Validator.init(document.getElementById('phone-cta'), {
     rules: {
         required: true,
@@ -290,9 +293,30 @@ var nameInput = new Validator.init(document.getElementById('name-cta'), {
     onSuccess: onSuccess
 });
 
-var validateBtn = document.getElementById('form-modal-window__send-button-cta');
-
-validateBtn.addEventListener('click', function(e) {
+document.querySelector('#phone-cta').addEventListener('change', function(e) {
     phoneInput.validate();
+})
+
+document.querySelector('#name-cta').addEventListener('change', function(e) {
     nameInput.validate();
-}, false)
+})
+
+console.log('asdfsadfsafd')
+
+$('#form-modal-window__send-button-cta').on('click', function() {
+
+    $.ajax({
+        url: 'assets/php/send.php',
+        type: 'POST',
+        cache: false,
+        data: formData,
+        beforeSend: function() {
+            $('.form-modal-window__send-button-cta').prop('disabled', true)
+        },
+        succes: function(data) {
+            alert(data)
+            $('.form-modal-window__send-button-cta').prop('disabled', false)
+        }
+    })
+
+})
