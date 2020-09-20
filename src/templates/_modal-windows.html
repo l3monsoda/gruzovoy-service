@@ -1,5 +1,5 @@
 <!-- CALL-TO-ACTION-FORM -->
-<form id="call-to-action-form" class=" white-popup-block mfp-with-anim form-modal-window" style="top: 0">
+<form id="call-to-action-form" class=" white-popup-block mfp-with-anim form-modal-window" style="top: 0" action="assets/php/send.php" method="POST">
     <h2 class="form-modal-window__header">Связаться с нами</h2>
     <div class="form-content__subtext">Заполните поля и мы перезвоним в течении 15 минут</div>
     <div class="form-modal-window__form-content">
@@ -23,7 +23,7 @@
         </fieldset>
         <div class="form_content__bottom-block">
             <div class="bottom-block__conf">Отправляя данные вы соглашаетесь с <a download href="/policy.pdf" class="mw-conf-link">политикой конфиденциальности</a></div>
-            <input name="submit" class="btn-submit" id="form-modal-window__send-button-cta" type="button" value="" />
+            <input name="submit" class="btn-submit" id="form-modal-window__send-button-cta" type="submit" value="" />
             <label for="form-modal-window__send-button-cta" class="form-modal-window__send-button">Отправить</label>
         </div>
     </div>
