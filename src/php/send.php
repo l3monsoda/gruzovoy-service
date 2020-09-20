@@ -12,9 +12,9 @@ $response = [
     'errors' => ''
 ];
     $arr = array();
-    $arr['name'] = "      Илья         ";
+    $arr['name'] = "      TELL         ";
     $arr['phone'] = "+7 (912) 186 15-15";
-    $arr['message'] = "Вдаожыдфоа ыфафжыа фывоа жфыао фыжа офыжда офыжаофжыаоф";
+    $arr['message'] = "1344444444444asfasff44444";
 
 
 // Обработка данных с формы 
@@ -47,14 +47,28 @@ $response = [
 
     else {
         $phone = (int) $phone;
-        $app = "INSERT messages ("
+        $app = "INSERT applications (name, phone, message) VALUES (:name, :phone, :message)";
+        $query = $db->prepare($app);
+
+        $params = [
+            'name' => $name,
+            'phone' => $phone,
+            'message' => $message
+        ];
+
+        $query->execute($params);
+        $errInfo = $query->errorInfo();
+        
+        if($errInfo[0] !== PDO::ERR_NONE) {
+            $response['error'] = 'Произошла критическая ошибка на сервере';
+            exit();
+        }
 
         $dt = date("Y-d-m H:i:s");
-        $mainBody = "Date: $dt\nPhone: $phone\nName: $name";
-        
+        $mainBody = "Date: $dt\nPhone: $phone\nName: $name\nMessage: $message";
+        mail("admin@piter-truck.ru", "piter-truck", $mainBody);
+
         $response['res'] = true;
     }
 
-    // echo $name;
-    echo $phone;
     // echo json_encode($response);
