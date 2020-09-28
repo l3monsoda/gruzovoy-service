@@ -1,9 +1,5 @@
 // Модальные окна
 
-const {
-  post
-} = require("jquery");
-
 $('.popup-with-form').magnificPopup({
   type: 'inline',
   preloader: false,
@@ -117,38 +113,6 @@ $('.maz-slider').slick({
   nextArrow: '    <svg class="maz-slider-arrow mod-next">\n' +
     '      <use xlink:href="/assets/img/sprite.svg#angle-right"></use>\n' +
     '    </svg>'
-});
-
-// Отправка данных с формы
-
-$('.btn_submit').click(function () {
-
-  const clientPhone = $('.phone-input').val();
-  const clientName = $('.name-input').val();
-  const textComment = $('.textarea-item').val();
-
-  $.ajax({
-    url: "../php/send.php",
-    type: "post",
-    data: {
-      "phone": clientPhone,
-      "name": clientName,
-      "comment": textComment
-
-    },
-    error: function () {
-      $("#erconts").html("Произошла ошибка!");
-    },
-
-    beforeSend: function () {
-      $("#erconts").html("Отправляем данные...");
-    },
-    success: function (result) {
-
-      $('#erconts').html(result);
-      console.log("ntcn");
-    }
-  });
 });
 
 // Сумматор таблицы прайс-листа
@@ -272,10 +236,10 @@ var onSuccess = function () {
   formData[this.element.getAttribute('name')] = this.value
 }
 
-var phoneInput = new Validator.init(document.getElementById('phone-cta'), {
+var phoneInputCta = new Validator.init(document.getElementById('phone-cta'), { 
   rules: {
     required: true,
-    match: 'numbers',
+    match: 'phone',
     min: 6,
     max: 12,
   },
@@ -289,7 +253,7 @@ var phoneInput = new Validator.init(document.getElementById('phone-cta'), {
   onSuccess: onSuccess
 })
 
-var nameInput = new Validator.init(document.getElementById('name-cta'), {
+var nameInputCta = new Validator.init(document.getElementById('name-cta'), {
   rules: {
     required: true,
     match: 'letters',
@@ -303,7 +267,7 @@ var nameInput = new Validator.init(document.getElementById('name-cta'), {
   onSuccess: onSuccess
 })
 
-var messageInput = new Validator.init(document.getElementById('textarea-cta'), {
+var messageInputCta = new Validator.init(document.getElementById('textarea-cta'), {
   rules: {
     required: false
   },
@@ -313,29 +277,139 @@ var messageInput = new Validator.init(document.getElementById('textarea-cta'), {
   }
 })
 
-document.querySelector('#phone-cta').addEventListener('change', function (e) {
-  phoneInput.validate()
+var phoneInputEpf = new Validator.init(document.getElementById('phone-epf'), { 
+  rules: {
+    required: true,
+    match: 'phone',
+    min: 6,
+    max: 12,
+  },
+  messages: {
+    required: 'Это поле обязательно для заполнения!',
+    min: 'Введите минимум %rule% цифр',
+    max: 'Не больше %rule% цифр',
+    match: 'Введите корректный номер телефона'
+  },
+  onError: onError,
+  onSuccess: onSuccess
 })
 
-document.querySelector('#name-cta').addEventListener('change', function (e) {
-  nameInput.validate()
+var nameInputEpf = new Validator.init(document.getElementById('name-epf'), {
+  rules: {
+    required: true,
+    match: 'letters',
+    min: 2,
+  },
+  messages: {
+    required: 'Это поле обязательно для заполнения!',
+    min: 'Введите минимум %rule% букв'
+  },
+  onError: onError,
+  onSuccess: onSuccess
 })
 
-$('#call-to-action-form').on('submit', function (e) {
+var phoneInputFaq = new Validator.init(document.getElementById('phone-faq'), { 
+  rules: {
+    required: true,
+    match: 'phone',
+    min: 6,
+    max: 12,
+  },
+  messages: {
+    required: 'Это поле обязательно для заполнения!',
+    min: 'Введите минимум %rule% цифр',
+    max: 'Не больше %rule% цифр',
+    match: 'Введите корректный номер телефона'
+  },
+  onError: onError,
+  onSuccess: onSuccess
+})
 
-  messageInput.validate()
+var nameInputFaq = new Validator.init(document.getElementById('name-faq'), {
+  rules: {
+    required: true,
+    match: 'letters',
+    min: 2,
+  },
+  messages: {
+    required: 'Это поле обязательно для заполнения!',
+    min: 'Введите минимум %rule% букв'
+  },
+  onError: onError,
+  onSuccess: onSuccess
+})
 
+var messageInputFaq = new Validator.init(document.getElementById('textarea-faq'), {
+  rules: {
+    required: false
+  },
+  onError: function () {},
+  onSuccess: function () {
+    formData[this.element.getAttribute('name')] = this.value
+  }
+})
+
+$('#phone-cta').on('change', function (e) {
+  phoneInputCta.validate()
+})
+
+$('#name-cta').on('change', function (e) {
+  nameInputCta.validate()
+})
+
+$('#phone-epf').on('change', function (e) {
+  phoneInputEpf.validate()
+})
+
+$('#name-epf').on('change', function (e) {
+  nameInputEpf.validate()
+})
+
+$('#phone-faq').on('change', function (e) {
+  phoneInputFaq.validate()
+})
+
+$('#name-faq').on('change', function (e) {
+  nameInputFaq.validate()
+})
+
+$('.form-modal-window').on('submit', function (e) {
+  e.preventDefault()
+  messageInputCta.validate()
   $.ajax({
     url: "assets/php/send.php",
     type: "POST",
     data: formData,
     cache: false,
 
-    success: function (result) {
-      alert(result)
+    beforeSend: function () {
+        $('.form-modal-window__form-content').slideUp(500)
+        $('.lds-ring').appendTo($('#call-to-action-form')).show()  
+        },
+
+    success: function (response) {
+        console.log(this)
+        setTimeout(function() {
+            var jsonData = JSON.parse(response)
+            if (jsonData.res == '1') {
+                $('.lds-ring').hide()
+                $('.form-modal-window__header').text('Спасибо!')
+                $('.form-content__subtext').text('Ваша заявка успешно отправлена')
+                $('.checkmark').appendTo($('#call-to-action-form')).show()    
+            }
+    
+            else {
+                console.log('Все плохо!')
+            }
+        }, 3000)
+
+        setTimeout(function() {
+            $('.checkmark').slideUp()
+        }, 8000)
+    },
+
+    error: function() {
     }
   })
-
-  e.preventDefault()
-
 })
+

@@ -29,19 +29,6 @@
   }
 }
 
-.iframe-form {
-  position: absolute;
-  z-index: 900;
-  left: 50%;
-  margin-left: -25%;
-  top: -500px;
-  box-shadow: 0 30px 70px 14px rgba(0, 0, 0, 0.2);
-  color: @main-black;
-  box-sizing: border-box;
-  padding: 50px;
-  background-color: @main-white;
-}
-
 #textarea {
   resize: none;
 }
@@ -343,3 +330,96 @@ border-color: rgb(23, 144, 12);
 
 }
 
+// CSS animate loader
+
+.animation-size(@w: 100px, @h: 100px) {
+  width: @w;
+  height: @h;
+  margin: 20px 0;
+}
+
+.lds-ring {
+  .animation-size();
+  display: inline-block;
+  position: relative;
+  display: none;
+}
+.lds-ring div {
+  .animation-size();
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  border: 8px solid @second-orange;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: @second-orange transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// CSS animate checkmark 
+
+.checkmark__circle {
+  stroke-dasharray: 216; /* ORIGINALLY 166px */
+  stroke-dashoffset: 216; /* ORIGINALLY 166px */
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #7ac142;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+  .animation-size();
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  display: none;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  // margin: 10% auto;
+  box-shadow: inset 0px 0px 0px #7ac142;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 98; /* ORIGINALLY 48px */
+  stroke-dashoffset: 98; /* ORIGINALLY 48px*/
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 80px #7ac142;
+  }
+}

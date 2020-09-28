@@ -1,5 +1,5 @@
 <!-- CALL-TO-ACTION-FORM -->
-<form id="call-to-action-form" class=" white-popup-block mfp-with-anim form-modal-window" style="top: 0" action="assets/php/send.php" method="POST">
+<form id="call-to-action-form" class="mfp-hide white-popup-block mfp-with-anim form-modal-window" action="assets/php/send.php" method="POST">
     <h2 class="form-modal-window__header">Связаться с нами</h2>
     <div class="form-content__subtext">Заполните поля и мы перезвоним в течении 15 минут</div>
     <div class="form-modal-window__form-content">
@@ -29,7 +29,7 @@
     </div>
 </form>
 <!-- ESTIMATE-PRICE-FORM -->
-<form id="estimate-price-form" class="mfp-hide white-popup-block mfp-with-anim form-modal-window">
+<form id="estimate-price-form" class="mfp-hide white-popup-block mfp-with-anim form-modal-window" action="assets/php/upload.php" method="POST">
     <h2 class="form-modal-window__header">Оценка повреждений по фото</h2>
     <div class="form-content__subtext">Заполните поля, загрузите фотографии и отправьте заявку. Мы перезвоним в течении 15 минут и обсудим стоимость и план работ</div>
     <div class="form-modal-window__form-content">
@@ -37,11 +37,13 @@
             <ul class="form-modal-window__form-items">
                 <li>
                     <label for="phone-epf" class="phone-label">Номер телефона</label>
-                    <input id="phone-epf" name="phone" type="tel" value="+7 " placeholder="+7 (...) " required class="form-modal-window__input-item phone-input">
+                    <input id="phone-epf" name="phone" type="tel" value="" placeholder="+7 (...) " required class="form-modal-window__input-item phone-input">
+                    <div class="validation-result"></div>
                 </li>
                 <li>
                     <label for="name-epf" class="name-label">Ваше имя</label>
                     <input id="name-epf" name="name" type="text" placeholder="Как к вам обращаться?" required class="form-modal-window__input-item name-input">
+                    <div class="validation-result"></div>
                 </li>
                 <li class="dropzone" id="formUpload" data-action="#">
                 </li>
@@ -55,7 +57,7 @@
     </div>
 </form>
 <!-- FAQ -->
-<form id="faq-form" class="mfp-hide white-popup-block mfp-with-anim form-modal-window">
+<form id="faq-form" class="mfp-hide white-popup-block mfp-with-anim form-modal-window" action="assets/php/send.php" method="POST">
     <h2 class="form-modal-window__header">Задайте ваш вопрос</h2>
     <div class="form-content__subtext">Задайте ваш вопрос и заполните номер телефона или e-mail для ответа</div>
     <div class="form-modal-window__form-content">
@@ -63,15 +65,18 @@
             <ul class="form-modal-window__form-items">
                 <li>
                     <label for="phone-faq" class="phone-label">Номер телефона</label>
-                    <input id="phone-faq" name="phone" type="tel" value="+7 " placeholder="+7 (...) " required class="form-modal-window__input-item phone-input">
+                    <input id="phone-faq" name="phone" type="tel" value="" placeholder="+7 (...) " required class="form-modal-window__input-item phone-input">
+                    <div class="validation-result"></div>
                 </li>
                 <li>
                     <label for="name-faq" class="name-label">Ваше имя</label>
-                    <input id="name-faq" name="name" type="text" placeholder="Как к вам обращаться?" required=c lass="form-modal-window__input-item name-input">
+                    <input id="name-faq" name="name" type="text" placeholder="Как к вам обращаться?" required class="form-modal-window__input-item name-input">
+                    <div class="validation-result"></div>
                 </li>
                 <li>
                     <label for="textarea-faq" class="message-label">Сообщение</label>
                     <textarea id="textarea-faq" class="form-modal-window__input-item textarea-item" placeholder="Введите ваше сообщение (заполнять не обязательно)"></textarea>
+                    <div class="validation-result"></div>
                 </li>
             </ul>
         </fieldset>
@@ -82,7 +87,10 @@
         </div>
     </div>
 </form>
-<!-- IFRAME -->
-<form id="iframe-form" class="mfp-hide white-popup-block mfp-with-anim iframe-form">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejw7mrAJPcy5kAlCfuXXnajEfDPNWADU5AJoSCg6dYHM36NQ/viewform?embedded=true" width="430" height="800px" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
-</form>
+<!-- CSS animate loader block -->
+<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+<!-- CSS checkmark animation block -->
+<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+  </svg>
