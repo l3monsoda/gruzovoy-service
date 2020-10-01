@@ -357,6 +357,10 @@ $('#name-cta').on('change', function (e) {
   nameInputCta.validate()
 })
 
+$('#message-cta').on('change', function (e) {
+  messageInputCta.validate()
+})
+
 $('#phone-epf').on('change', function (e) {
   phoneInputEpf.validate()
 })
@@ -373,9 +377,12 @@ $('#name-faq').on('change', function (e) {
   nameInputFaq.validate()
 })
 
+$('#message-faq').on('change', function (e) {
+  messageInputFaq.validate()
+})
+
 $('.form-modal-window').on('submit', function (e) {
   e.preventDefault()
-  messageInputCta.validate()
   $.ajax({
     url: "assets/php/send.php",
     type: "POST",
@@ -384,7 +391,7 @@ $('.form-modal-window').on('submit', function (e) {
 
     beforeSend: function () {
         $('.form-modal-window__form-content').slideUp(500)
-        $('.lds-ring').appendTo($('#call-to-action-form')).show()  
+        $('.lds-ring').appendTo($('.form-modal-window')).show()  
         },
 
     success: function (response) {
@@ -395,7 +402,7 @@ $('.form-modal-window').on('submit', function (e) {
                 $('.lds-ring').hide()
                 $('.form-modal-window__header').text('Спасибо!')
                 $('.form-content__subtext').text('Ваша заявка успешно отправлена')
-                $('.checkmark').appendTo($('#call-to-action-form')).show()    
+                $('.checkmark').appendTo($('.form-modal-window')).show()    
             }
     
             else {

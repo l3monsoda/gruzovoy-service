@@ -40,6 +40,21 @@ if (!preg_match('/^[0-9]+$/', $phone)) {
     $response['error'] = 'В телефоне не должно быть букв';
 }
 
+// Загрузка файлов фотографий на сервер 
+
+if(!empty($_FILES)){ 
+    
+    // File path configuration 
+    $uploadDir = "../../uploads/"; 
+    $fileName = basename($_FILES['file']['name']); 
+    $uploadFilePath = $uploadDir.$fileName; 
+     
+    // Upload file to server 
+    if(move_uploaded_file($_FILES['file']['tmp_name'], $uploadFilePath)){ 
+        // Insert file information in the database 
+    } 
+} 
+
 // Простейшая server-side валидация
 if ($name === '' || $phone === '') {
     $response['error'] = 'Имя и телефон не могут быть пустыми';
