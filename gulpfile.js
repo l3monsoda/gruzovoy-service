@@ -47,8 +47,8 @@ const browserSync = create()
 /****************************************************************************************************/
 const serve = cb => {
   browserSync.init({
-    // server: 'build',
-    proxy: 'localhost/gruzovoy-service/build/',
+    server: 'build',
+    // proxy: 'localhost/gruzovoy-service/build/',
     watch: true,
     open: false,
     notify: false
