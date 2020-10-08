@@ -176,31 +176,31 @@ function filterCard(fabrication) {
   }
 }
 
-$('#russian').click(function () {
+$('#russian').on('click', function () {
   $(this).addClass('tab-item__active');
   $('.tab-item').not(this).removeClass('tab-item__active');
   filterCard('russia');
 });
 
-$('#europian').click(function () {
+$('#europian').on('click', function () {
   $(this).addClass('tab-item__active');
   $('.tab-item').not(this).removeClass('tab-item__active');
   filterCard('europe');
 });
 
-$('#american').click(function () {
+$('#american').on('click', function () {
   $(this).addClass('tab-item__active');
   $('.tab-item').not(this).removeClass('tab-item__active');
   filterCard('usa');
 });
 
-$('#chineese').click(function () {
+$('#chineese').on('click', function () {
   $(this).addClass('tab-item__active');
   $('.tab-item').not(this).removeClass('tab-item__active');
   filterCard('china');
 });
 
-$('#all').click(function () {
+$('#all').on('click', function () {
   $(this).addClass('tab-item__active');
   $('.tab-item').not(this).removeClass('tab-item__active');
   $('.painting-card__item').fadeIn();
