@@ -11,14 +11,6 @@ $response = [
     'res' => false,
     'errors' => ''
 ];
-// $arr = array();
-// $arr['name'] = "      TELL         ";
-// $arr['phone'] = "+7 (912) 186 15-15";
-// $arr['message'] = "1344444444444asfasff44444";
-
-// $name = trim($arr['name'] ?? '');
-// $phone = trim($arr['phone'] ?? '');
-// $message = trim($arr['message'] ?? '');
 
 // Обработка данных с формы, приводим номер телефона к виду 8xxxxxxxxxx
 
@@ -83,7 +75,7 @@ if ($name === '' || $phone === '') {
     // Отправляем данные на почту админу
     $dt = date("Y-d-m H:i:s");
     $mainBody = "Date: $dt\nPhone: $phone\nName: $name\nMessage: $message";
-    mail("admin@piter-truck.ru", "piter-truck", $mainBody);
+    mail("info@piter-trucks.ru", "piter-truck", $mainBody);
 
     $response['res'] = true;
 }
